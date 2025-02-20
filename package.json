@@ -26,7 +26,8 @@
       "cordova-plugin-firebasex": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   },
   "devDependencies": {
@@ -34,7 +35,7 @@
     "cordova-ios": "^7.1.1",
     "cordova-plugin-crosswalk-webview": "^2.4.0",
     "cordova-plugin-firebasex": "^18.0.5",
-    "cordova-plugin-inappbrowser": "^5.0.0",
+    "cordova-plugin-inappbrowser": "^6.0.0",
     "cordova-plugin-network-information": "^3.0.0",
     "cordova-plugin-splashscreen": "^6.0.2",
     "cordova-plugin-statusbar": "^3.0.0",

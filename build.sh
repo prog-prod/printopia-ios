@@ -12,3 +12,11 @@ cordova platforms add ios
 cordova build $PLATFORM $@
 
 cp ./PrivacyInfo.xcprivacy ./platforms/$PLATFORM/$APP_NAME/PrivacyInfo.xcprivacy
+
+# Копируем PrivacyInfo.xcprivacy в GoogleSignIn
+mkdir -p platforms/ios/Pods/GoogleSignIn/GoogleSignIn/Resources
+cp ./outdated/GoogleSignIn/PrivacyInfo.xcprivacy platforms/ios/Pods/GoogleSignIn/GoogleSignIn/Resources/PrivacyInfo.xcprivacy && echo "GoogleSignIn PrivacyInfo.xcprivacy added."
+
+# Копируем PrivacyInfo.xcprivacy в GTMAppAuth
+mkdir -p platforms/ios/Pods/GTMAppAuth/GTMAppAuth/Resources
+cp ./outdated/GTMAppAuth/PrivacyInfo.xcprivacy platforms/ios/Pods/GTMAppAuth/GTMAppAuth/Resources/PrivacyInfo.xcprivacy && echo "GTMAppAuth PrivacyInfo.xcprivacy added."
