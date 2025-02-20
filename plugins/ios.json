@@ -1,0 +1,30 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "ua.com.printopia"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "ua.com.printopia"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "ua.com.printopia"
+    },
+    "cordova-plugin-crosswalk-webview": {
+      "PACKAGE_NAME": "ua.com.printopia"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "ua.com.printopia"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "ua.com.printopia"
+    }
+  },
+  "dependent_plugins": {}
+}

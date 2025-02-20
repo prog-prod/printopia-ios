@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, width=device-width, viewport-fit=cover">
+       <title>Printopia</title>
+        <style>
+            #offline {
+                display: none;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: #3a8fc4;
+                color: #fff;
+                font-size: 20pt;
+                font-weight: bold;
+
+            }
+            #offline div{
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" src="cordova.js"></script>
+        
+        <script>
+            StatusBar.backgroundColorByHexString("#212329");
+        </script>
+
+        <script type="text/javascript" charset="utf-8">
+            document.addEventListener("deviceready", onDeviceReady, false);
+            document.addEventListener("offline", onOffline, false);
+            document.addEventListener("online", onOnline, false);
+            var one_open_window = 1;
+            function reopenwindows(obj) {
+                console.log('reopenwindows');
+                obj.addEventListener('exit', function(e) {
+                    console.log('exit window');
+                    var ref = window.open('https://printopia.com.ua?utm_source=app_ios&utm_medium=app&utm_campaign=app_ios', '_self', 'location=no');
+                    reopenwindows(ref);
+                });
+            }
+            function onDeviceReady() {
+                    console.log('Device is ready!');
+
+                window.FirebasePlugin.grantPermission();
+
+                  // получить APNS токен устройства и передать его в Firebase для получения FCM токена
+                  window.FirebasePlugin.onApnsTokenReceived(function(token) {
+                    window.FirebasePlugin.getToken(function(fcmToken) {
+                      console.log("FCM token: " + fcmToken);
+                    }, function(error) {
+                      console.error("Failed to get FCM token: " + error);
+                    });
+                  }, function(error) {
+                    console.error("Failed to get APNS token: " + error);
+                  });
+
+                  // создать канал уведомлений
+                  var channel = {
+                    id: "Printopia_iOS_APP",
+                    name: "Printopia",
+                    importance: 4
+                  };
+
+                  window.FirebasePlugin.createChannel(channel, function() {
+                    console.log("Created channel: " + channel.id);
+                  }, function(error) {
+                    console.error("Failed to create channel: " + error);
+                  });
+
+            }
+            function onOffline() {
+                var obj = document.getElementById("offline");
+                obj.style.display='table';
+            }
+            function onOnline() {
+                if(one_open_window == 1) {
+                    var ref = window.open('https://printopia.com.ua?utm_source=app_ios&utm_medium=app&utm_campaign=app_ios', '_self', 'location=no');
+                    reopenwindows(ref);
+                    one_open_window=0;
+                }
+                var obj = document.getElementById("offline");
+                obj.style.display='none';
+
+            }
+
+        </script>
+      <div id="offline"><div>Перевірте підключення до Інтернету</div></div>
+
+    </body>
+
+</html>
