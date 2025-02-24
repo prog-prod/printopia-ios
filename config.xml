@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="ua.com.printopia" version="1.0.14" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <preference name="deployment-target" value="14.0" />
+    <preference name="deployment-target" value="13.0" />
     <name>Printopia</name>
     <author email="polyvyanyy.andrii@gmail.com" href="https://printopia.com.ua/">
         Printopia — зручний інтернет-магазин для покупки чашок, термокружок і посуду для сублімації. Пропонуємо широкий асортимент якісної продукції з доставкою по всій Україні.

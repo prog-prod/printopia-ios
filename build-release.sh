@@ -13,10 +13,7 @@ rm -rf platforms/*
 rm -rf plugins/*
 echo "Project recreated"
 
-# add plugins
-cordova plugin add cordova-plugin-firebasex
 echo "Building the app..."
-
 # add platform and build
 ./build.sh --release
 
